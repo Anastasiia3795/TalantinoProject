@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SignInModal extends BasePage {
 
-    @FindBy(xpath = "//*[@id='root']/div/div/form/p/a")
+    @FindBy(xpath = "//*[@id='root']/div/div/form/p/a") //*[@id="root"]/header/div/p/button
     private WebElement signInButton;
 
     @FindBy(xpath = "//*[@id='email']")
@@ -60,4 +60,6 @@ public class SignInModal extends BasePage {
     public String getPasswordErrorMes() {
         return passwordErrorMes.getText();
     }
+
+
 }

@@ -14,6 +14,8 @@ public class TalentProfileModal extends BasePage {
     private WebElement nextButton;
     @FindBy(xpath = "//../header/div/button[3]")
     private WebElement previousButton;
+    @FindBy(xpath = "//../div/div[2]/header/div/a[2]")
+    private WebElement myProofsButton;
 
     public TalentProfileModal(WebDriver driver) {
         super(driver);
@@ -42,5 +44,13 @@ public class TalentProfileModal extends BasePage {
 
     public void clickPreviousButton() {
         previousButton.click();
+    }
+
+    public WebElement getMyProofsButton() {
+        return myProofsButton;
+    }
+
+    public void clickMyProofsButton() {
+        myProofsButton.click();
     }
 }
