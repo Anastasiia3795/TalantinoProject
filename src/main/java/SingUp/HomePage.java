@@ -14,6 +14,14 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//*[@id='root']/div/div/div[2]/div/div[5]/div/button/div[2]/h6")
     private WebElement talentProfileButton;
 
+    @FindBy(xpath = "//*[@id='root']/header/div/p/button")
+    private WebElement menuButton;
+    @FindBy(xpath = "//*[@id='account-menu']/div[3]/ul/li[1]/a")
+    private WebElement myProfileButton;
+
+    @FindBy(xpath = "//a[contains(text(), 'Settings')]")
+    private WebElement sponsorSettingsButton;
+
     public HomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -48,5 +56,29 @@ public class HomePage extends BasePage{
 
     public String getHomePageUrl() {
         return driver.getCurrentUrl();
+    }
+
+    public WebElement getMenuButton() {
+        return menuButton;
+    }
+
+    public void clickMenuButton() {
+        menuButton.click();
+    }
+
+    public WebElement getMyProfileButton() {
+        return myProfileButton;
+    }
+
+    public void clickMyProfileButton() {
+        myProfileButton.click();
+    }
+
+    public WebElement getSponsorSettingsButton() {
+        return sponsorSettingsButton;
+    }
+
+    public void clickSponsorSettingsButton() {
+        sponsorSettingsButton.click();
     }
 }
