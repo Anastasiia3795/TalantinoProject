@@ -44,7 +44,7 @@ public class TalantinoTestStage4 {
         wait.until(ExpectedConditions.elementToBeClickable(homePage.isDisplayedLoginButton()));
         homePage.clickLoginButton();
         signInModal = new SignInModal(driver);
-        signInModal.logIn("testEmail@mail.com", "test12345");
+        signInModal.logIn("maschenkonastya@gmail.com", "test12345");
     }
 
     public void chooseTypeProofs(String Type) {

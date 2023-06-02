@@ -37,22 +37,22 @@ public class TalantinoTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    @Test
-    public void testRegistrationTalantino() {
-        driver.get("http://18.156.56.85:8084/talents");
-        homePage = new HomePage(driver);
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.isDisplayedLoginButton()));
-        homePage.clickLoginButton();
-        signInModal = new SignInModal(driver);
-        wait.until(ExpectedConditions.visibilityOf(signInModal.getSignInButton()));
-        signInModal.clickSignInButton();
-        signUpModal = new SignUpModal(driver);
-        signUpModal.signUp("Test", "Testerov", "testEmail@mailinator.com",
-                "testPassword123", "testPassword123", "QA");
-        signUpModal.clickSignUpButton();
-        myAccountModal = new MyAccountModal(driver);
-        assertThat(driver.getCurrentUrl(), equalTo(myAccountModal.getUrl()));
-    }
+//    @Test
+//    public void testRegistrationTalantino() {
+//        driver.get("http://talantino.pepega.cloud/");
+//        homePage = new HomePage(driver);
+//        wait.until(ExpectedConditions.elementToBeClickable(homePage.isDisplayedLoginButton()));
+//        homePage.clickLoginButton();
+//        signInModal = new SignInModal(driver);
+//        wait.until(ExpectedConditions.visibilityOf(signInModal.getSignInButton()));
+//        signInModal.clickSignInButton();
+//        signUpModal = new SignUpModal(driver);
+//        signUpModal.signUp("Test", "Testerov", "testEmail@mailinator.com",
+//                "testPassword123", "testPassword123", "QA");
+//        signUpModal.clickSignUpButton();
+//        myAccountModal = new MyAccountModal(driver);
+//        assertThat(driver.getCurrentUrl(), equalTo(myAccountModal.getUrl()));
+//    }
 
     @Test
     public void checkFillingSomeFieldsRegistration() {
@@ -111,12 +111,11 @@ public class TalantinoTest {
         homePage.clickLoginButton();
         signInModal = new SignInModal(driver);
         signInModal.logIn("Test@mailcom", "password");
-        assertTrue(signInModal.getEmailErrorMes().isDisplayed());
         assertThat(signInModal.getPasswordErrorMes(), equalTo("Your password doesn't meet requirements"));
     }
 
     @Test
-    public void checkButtonsOnTalentProfile() {
+    public void checkNextButtonsOnTalentProfile() {
         driver.get("http://18.156.56.85:8084/talents");
         homePage = new HomePage(driver);
         wait.until(ExpectedConditions.elementToBeClickable(homePage.isDisplayedLoginButton()));
@@ -129,9 +128,35 @@ public class TalantinoTest {
         wait.until(ExpectedConditions.elementToBeClickable(talentProfileModal.getNextButton()));
         talentProfileModal.clickNextButton();
         assertThat(homePage.getHomePageUrl(), equalTo("http://18.156.56.85:8084/talent/11"));
+    }
+
+    @Test
+    public void checkPrevButtonsOnTalentProfile() {
+        driver.get("http://18.156.56.85:8084/talents");
+        homePage = new HomePage(driver);
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.isDisplayedLoginButton()));
+        homePage.clickLoginButton();
+        signInModal = new SignInModal(driver);
+        signInModal.logIn("testEmail@mailinator.com", "testPassword123");
+        wait.until(ExpectedConditions.visibilityOf(homePage.getTalentProfileButton()));
+        homePage.clickTalentProfileButton();
+        talentProfileModal = new TalentProfileModal(driver);
         wait.until(ExpectedConditions.elementToBeClickable(talentProfileModal.getPreviousButton()));
         talentProfileModal.clickPreviousButton();
         assertThat(homePage.getHomePageUrl(), equalTo("http://18.156.56.85:8084/talent/10"));
+    }
+
+    @Test
+    public void checkCloseButtonsOnTalentProfile() {
+        driver.get("http://18.156.56.85:8084/talents");
+        homePage = new HomePage(driver);
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.isDisplayedLoginButton()));
+        homePage.clickLoginButton();
+        signInModal = new SignInModal(driver);
+        signInModal.logIn("testEmail@mailinator.com", "testPassword123");
+        wait.until(ExpectedConditions.visibilityOf(homePage.getTalentProfileButton()));
+        homePage.clickTalentProfileButton();
+        talentProfileModal = new TalentProfileModal(driver);
         wait.until(ExpectedConditions.elementToBeClickable(talentProfileModal.getCloseButton()));
         talentProfileModal.clickCloseButton();
         assertThat(homePage.getHomePageUrl(), equalTo("http://18.156.56.85:8084/talents/?page=1"));

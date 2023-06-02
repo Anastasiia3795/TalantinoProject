@@ -14,7 +14,7 @@ public class TalentProfileModal extends BasePage {
     private WebElement nextButton;
     @FindBy(xpath = "//../header/div/button[3]")
     private WebElement previousButton;
-    @FindBy(xpath = "//../div/div[2]/header/div/a[2]")
+    @FindBy(xpath = "//*[@id=/root/]//div/div/div/a[2]")
     private WebElement myProofsButton;
 
     public TalentProfileModal(WebDriver driver) {

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ProofModal extends BasePage {
 
-    @FindBy(xpath = "//*[@id='root']/div/div/div[2]/div/div[1]/div/div/div")
+    @FindBy(xpath = "//div[contains(@role, 'button')]")
     private WebElement typeProofs;
     @FindBy(xpath = "//button[contains(@title, 'Edit')]")
     private WebElement editProofButton;

@@ -35,12 +35,12 @@ public class TalantinoTestStage3 {
     }
 
     public void authorization() {
-        driver.get("http://talantino.pepega.cloud/");
+        driver.get("http://18.156.56.85:8084/talents");
         homePage = new HomePage(driver);
         wait.until(ExpectedConditions.elementToBeClickable(homePage.isDisplayedLoginButton()));
         homePage.clickLoginButton();
         signInModal = new SignInModal(driver);
-        signInModal.logIn("Test@mail.com", "test12345");
+        signInModal.logIn("xowixew396@favilu.com", "test12345");
     }
 
     @Test

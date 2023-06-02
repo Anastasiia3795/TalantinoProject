@@ -14,9 +14,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//*[@id='root']/div/div/div[2]/div/div[5]/div/button/div[2]/h6")
     private WebElement talentProfileButton;
 
-    @FindBy(xpath = "//*[@id='root']/header/div/p/button")
+    @FindBy(xpath = "//div/p/button")
     private WebElement menuButton;
-    @FindBy(xpath = "//*[@id='account-menu']/div[3]/ul/li[1]/a")
+    @FindBy(xpath = "/html/body/div[3]/div/ul/li[1]/a")
     private WebElement myProfileButton;
 
     @FindBy(xpath = "//a[contains(text(), 'Settings')]")
